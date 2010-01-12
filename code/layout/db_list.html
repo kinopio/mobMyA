@@ -1,0 +1,9 @@
+<div class="table">
+	<div class="row" tal:repeat="item databases">
+		<div class="cell">
+			<div><a tal:attributes="href item/url_db" tal:content="item/schema_name" /></div>
+			<div tal:content="item/default_character_set_name" />
+			<div tal:content="item/default_collation_name" />
+		</div>
+	</div>
+</div>

@@ -1,0 +1,12 @@
+<div class="nav">
+	<a tal:attributes="href page/url_db_list" tal:content="page/lbl_db_list" />
+</div>
+<div class="table">
+	<div class="row" tal:repeat="item tables">
+		<div class="cell">
+			<div><a tal:attributes="href item/url_col" tal:content="item/table_name" /></div>
+			<div tal:content="item/table_collation" />
+			<div tal:content="item/engine" />
+		</div>
+	</div>
+</div>
