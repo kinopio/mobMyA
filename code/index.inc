@@ -7,12 +7,25 @@ define('ROOT_PATH', dirname(__FILE__) . '/');
 require_once ROOT_PATH . 'config/config.inc';
 
 if ( !func_call( 'check_include_path', 'MDB2.php' ) ) {
-	echo "Unable to find PEAR::MDB2 extension. Please install it (# pear install MDB2 MDB2#MySQL).";
+	echo 'Unable to find PEAR::MDB2 extension. Please install it (# pear install MDB2 MDB2#MySQL).';
 	exit;
 }
 
 if ( !func_call( 'check_include_path', 'PHPTAL.php' ) ) {
-	echo "Unable to find the PHPTAL library. Please install it (# pear install http://phptal.org/latest.tar.gz).";
+	echo 'Unable to find the PHPTAL library. Please install it (# pear install http://phptal.org/latest.tar.gz).';
+	exit;
+}
+
+if ( !is_dir( PHPTAL_CODE_DESTINATION ) ) {
+	$created = @mkdir( PHPTAL_CODE_DESTINATION );
+	if ( $created === false ) {
+		echo 'Unable to create ' . PHPTAL_CODE_DESTINATION . ' directory. Please create it.';
+		exit;
+	}
+}
+
+if ( !is_writeable( PHPTAL_CODE_DESTINATION ) ) {
+	echo 'Directory ' . PHPTAL_CODE_DESTINATION . ' is not writeable. Please update it.';
 	exit;
 }
 
