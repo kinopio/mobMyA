@@ -4,9 +4,18 @@
 <div class="table">
 	<div class="row" tal:repeat="item tables">
 		<div class="cell">
-			<div><a tal:attributes="href item/url_col" tal:content="item/table_name" /></div>
-			<div tal:content="item/table_collation" />
-			<div tal:content="item/engine" />
+			<div><span class="field">Table name: </span><strong><span tal:replace="item/table_name" /></strong><a tal:attributes="href item/url_col">Structure</a><a tal:attributes="href item/url_row">Rows</a><a tal:attributes="href item/url_idx">Indexes</a></div>
+			<div><span class="field">Collation: </span><strong><span tal:replace="item/table_collation" /></strong></div>
+			<div><span class="field">Engine: </span><strong><span tal:replace="item/engine" /></strong></div>
+			<div tal:condition="item/table_comment"><span class="field">Comment: </span><strong><span tal:replace="item/table_comment" /></strong></div>
+			<div tal:condition="item/table_rows"><span class="field">Rows: </span><strong><span tal:replace="item/table_rows" /></strong></div>
+			<div><span class="field">Row format: </span><strong><span tal:replace="item/row_format" /></strong></div>
+			<div><span class="field">Row length: </span><strong><span tal:replace="item/avg_row_length" /> B</strong></div>
+			<div><span class="field">Data size: </span><strong><span tal:replace="item/data_length" /> B</strong></div>
+			<div><span class="field">Index size: </span><strong><span tal:replace="item/index_length" /> B</strong></div>
+			<div tal:condition="item/create_time"><span class="field">Creation: </span><strong><span tal:replace="item/create_time" /></strong></div>
+			<div tal:condition="item/update_time"><span class="field">Last update: </span><strong><span tal:replace="item/update_time" /></strong></div>
+			<div tal:condition="item/check_time"><span class="field">Last check:  </span><strong><span tal:replace="item/check_time" /></strong></div>
 		</div>
 	</div>
 </div>
