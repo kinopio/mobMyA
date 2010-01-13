@@ -1,0 +1,17 @@
+<div class="nav">
+	<a tal:attributes="href page/url_db_list" tal:content="page/lbl_db_list" /><a tal:attributes="href page/url_tbl_list" tal:content="page/lbl_tbl_list" />
+</div>
+<div tal:condition="indexes" class="table">
+	<div class="row" tal:repeat="item indexes">
+		<div class="cell">
+			<div><span class="field">Name: </span><strong><span tal:replace="item/index_name" /></strong></div>
+			<div><span class="field">Field: </span><strong><span tal:replace="item/column_name" /></strong></div>
+			<div><span class="field">Type: </span><strong><span tal:replace="item/index_type" /></strong></div>
+			<div><span class="field">Non unique: </span><strong><span tal:replace="item/non_unique" /></strong></div>
+			<div><span class="field">Collation: </span><strong><span tal:replace="item/collation" /></strong></div>
+			<div><span class="field">Cardinality: </span><strong><span tal:replace="item/cardinality" /></strong></div>
+			<div tal:condition="item/packed"><span class="field">Packed: </span><strong><span tal:replace="item/packed" /></strong></div>
+			<div tal:condition="item/nullable"><span class="field">Null: </span><strong><span tal:replace="item/nullable" /></strong></div>
+		</div>
+	</div>
+</div>
