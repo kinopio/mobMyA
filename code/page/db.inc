@@ -18,6 +18,14 @@ function db() {
 			require_once PAGE_PATH . 'col_list.inc';
 			return col_list();
 			break;
+		case 'row_list':
+			require_once PAGE_PATH . 'row_list.inc';
+			return row_list();
+			break;
+		case 'idx_list':
+			require_once PAGE_PATH . 'idx_list.inc';
+			return idx_list();
+			break;
 	}
 
 }
